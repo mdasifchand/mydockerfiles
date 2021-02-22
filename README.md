@@ -12,11 +12,13 @@ To build a docker
 For instance, run ``` docker build . -f dev.Dockerfile ```
 
 
-To install run the script run.sh
+Few prior settings (especially on a new machine)
+
 
 ```bash
-sudo usermod -aG docker $USER
-bash run.sh
+sudo apt-get install docker.io
+sudo usermod -aG docker $USER //register the user
+
 ```
 # run 
 
