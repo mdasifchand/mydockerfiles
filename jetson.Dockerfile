@@ -1,7 +1,9 @@
-ROM aarch64/ubuntu
+FROM aarch64/ubuntu
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 # base URL for NVIDIA libs
-ARG URL=http://developer.download.nvidia.com/devzone/devcenter/mobile/jetpack_l4t/3.2/pwv346/JetPackL4T_32_b157
+ENV URL=http://developer.download.nvidia.com/devzone/devcenter/mobile/jetpack_l4t/3.2/pwv346/JetPackL4T_32_b157
 
 
 
