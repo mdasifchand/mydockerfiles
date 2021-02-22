@@ -1,7 +1,9 @@
 FROM aarch64/ubuntu
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # base URL for NVIDIA libs
-ENV URL http://developer.download.nvidia.com/devzone/devcenter/mobile/jetpack_l4t/3.2/pwv346/JetPackL4T_32_b157
+ENV URL=http://developer.download.nvidia.com/devzone/devcenter/mobile/jetpack_l4t/3.2/pwv346/JetPackL4T_32_b157
 
 
 
@@ -54,4 +56,3 @@ RUN ln -s /usr/lib/aarch64-linux-gnu/libcuda.so /usr/lib/aarch64-linux-gnu/libcu
 
 RUN apt-get -y autoremove && apt-get -y autoclean
 RUN rm -rf /var/cache/apt
-
