@@ -7,9 +7,15 @@ I would preferably would like to have my environment variables all located inisd
 
 ## Building
 
+To build a docker
+
+For instance, run ``` docker build . -f dev.Dockerfile ```
+
+
 To install run the script run.sh
 
 ```bash
+sudo usermod -aG docker $USER
 bash run.sh
 ```
 # run 
