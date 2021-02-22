@@ -84,8 +84,6 @@ RUN cd /opt/ &&\
     rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
 
 
-# ROS2 
-# Eigen 
-# Python- tensorflow or pytorch 
- 
+
+RUN apt-get update && pip install tensorflow 
  
