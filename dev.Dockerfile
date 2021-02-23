@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y net-tools curl \
 
 
 # IDE
+# TODO: add Jupyter Notebook
 
 RUN apt-get update && apt-get install -y vim  && rm -rf /var/lib/apt/lists/*
 
@@ -84,6 +85,5 @@ RUN cd /opt/ &&\
     rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
 
 
-
-RUN apt-get update && pip install tensorflow 
+RUN apt-get update && pip install tensorflow pytorch
  
