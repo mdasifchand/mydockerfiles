@@ -31,10 +31,10 @@ sudo usermod -aG docker $USER //register the user
 - Jetson TX2 based
 - Raspberry PI based
 
-## TODO
+# TODO
 
-- create CI pipeline and build it on the fly
-- organize container registry
+- Test Jetson add ons 
+
 
 
 ## License
