@@ -22,6 +22,7 @@ sudo usermod -aG docker $USER //register the user
 ```
 # run 
 
+ There is no entrypoint script simply because I would to pass on entrypoint with `docker run`instead of having one readily available. 
 
 
 ## Types of environment
