@@ -61,7 +61,7 @@ RUN  apt-get update && apt-get upgrade -y &&\
 
 
 
-RUN apt-get update && apt-get -y libeigen3-dev \
+RUN apt-get update && apt-get -y install libeigen3-dev \
   && rm -rf /var/lib/apt/lists/*
 
 
