@@ -2,6 +2,14 @@ FROM aarch64/ubuntu
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+ENV UID=1000
+ENV GID=1000
+RUN groupadd -g $GID -o light
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash light
+USER light
+
+
+
 # base URL for NVIDIA libs
 ENV URL=http://developer.download.nvidia.com/devzone/devcenter/mobile/jetpack_l4t/3.2/pwv346/JetPackL4T_32_b157
 
@@ -37,9 +45,9 @@ RUN dpkg -i /tmp/cuda-repo-l4t_arm64.deb && \
     apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub && \ 
     apt-get update && apt-get install -y cuda-toolkit-9.0 && \ 
     dpkg -i /tmp/libcudnn_arm64.deb && dpkg -i /tmp/libcudnn-dev_arm64.deb
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
+    
 
-
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
 
 
 
