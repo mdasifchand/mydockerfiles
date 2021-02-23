@@ -22,6 +22,7 @@ sudo usermod -aG docker $USER //register the user
 ```
 # run 
 
+ There is no entrypoint script simply because I would to pass on entrypoint with `docker run`instead of having one readily available. 
 
 
 ## Types of environment
@@ -30,10 +31,10 @@ sudo usermod -aG docker $USER //register the user
 - Jetson TX2 based
 - Raspberry PI based
 
-## TODO
+# TODO
 
-- create CI pipeline and build it on the fly
-- organize container registry
+- Test Jetson add ons 
+
 
 
 ## License
