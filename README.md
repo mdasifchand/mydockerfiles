@@ -3,7 +3,7 @@
 # Docker files for (different) dev-environment
 
 So I tend to use different PC's for development and it so happens sometimes I tend to miss some of the deps.
-I would preferably would like to have my environment variables all located inisde a docker and make it all reusable 
+I would preferably would like to have my environment variables and necessary packages all located inisde a docker and make it all reusable 
 
 ## Building
 
