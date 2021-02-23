@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y vim  && rm -rf /var/lib/apt/lists/*
 
 # My utilities
 
-RUN UN apt-get update && apt-get upgrade -y &&\
+RUN  apt-get update && apt-get upgrade -y &&\
     # Install build tools, build dependencies and python
     apt-get install -y \
 	    python-pip \
