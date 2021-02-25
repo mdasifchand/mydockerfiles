@@ -9,7 +9,7 @@ I would preferably would like to have my environment variables and necessary pac
 
 To build a docker
 
-For instance, run ``` docker build . -f dev.Dockerfile ```
+For instance, run ``` docker build -t <name:tag>. -f <type>.Dockerfile ```
 
 
 Few prior settings (especially on a new machine)
