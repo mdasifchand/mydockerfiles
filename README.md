@@ -35,6 +35,10 @@ sudo usermod -aG docker $USER //register the group
 
 - Test Jetson add ons 
 
+# Gitlab actions
+
+- To create a runner go to Actions and then create a new workflow with your defined purpose like publish/build etc.
+
 
 
 ## License
