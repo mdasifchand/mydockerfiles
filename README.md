@@ -17,7 +17,7 @@ Few prior settings (especially on a new machine)
 
 ```bash
 sudo apt-get install docker.io
-sudo usermod -aG docker $USER //register the user
+sudo usermod -aG docker $USER //register the group
 
 ```
 # run 
