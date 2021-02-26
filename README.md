@@ -1,9 +1,8 @@
 # mydockerfiles
 
-# Docker files for (different) dev-environment
+# Docker files 
 
-So I tend to use different PC's for development and it so happens sometimes I tend to miss some of the deps.
-I would preferably would like to have my environment variables and necessary packages all located inisde a docker and make it all reusable 
+My try to keep things simple
 
 ## Building
 
@@ -34,6 +33,7 @@ sudo usermod -aG docker $USER //register the group
 # TODO
 
 - Test Jetson add ons 
+- Create a docker compose
 
 # Gitlab actions
 
