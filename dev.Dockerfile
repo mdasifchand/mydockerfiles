@@ -1,10 +1,4 @@
 FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
-ARG UNAME=light
-ARG UID=1000
-ARG GID=1000
-RUN groupadd -g $GID -o $UNAME
-RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
-USER $UNAME
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV OPENCV_VERSION=4.5.0
@@ -109,3 +103,11 @@ RUN cd /opt/ &&\
 
 RUN apt-get update && pip install tensorflow pytorch \
 	&& rm -rf /var/lib/apt/lists/* 
+
+
+ARG UNAME=light
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID -o $UNAME
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
+USER $UNAME
