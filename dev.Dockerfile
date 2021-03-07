@@ -1,5 +1,7 @@
 FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 
+# TODO : install g20, pangolin 
+
 ARG UNAME=light
 ARG UID=1000
 ARG GID=1000
@@ -109,4 +111,6 @@ RUN cd /opt/ &&\
 
 
 RUN apt-get update && pip install tensorflow
+
+
  
