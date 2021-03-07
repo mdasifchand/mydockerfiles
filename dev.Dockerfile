@@ -1,5 +1,11 @@
 FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 
+ARG UNAME=light
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID -o $UNAME
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
+USER $UNAME
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV OPENCV_VERSION=4.5.0
@@ -102,5 +108,5 @@ RUN cd /opt/ &&\
     rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
 
 
-RUN apt-get update && pip install tensorflow pytorch
+RUN apt-get update && pip install tensorflow
  
