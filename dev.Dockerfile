@@ -1,7 +1,11 @@
 FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
+<<<<<<< HEAD
 
 # TODO : install g20, pangolin 
 
+=======
+# Full scale environment
+>>>>>>> a8c12520492600cef2a75d9ce4da93994a841690
 ARG UNAME=light
 ARG UID=1000
 ARG GID=1000
@@ -88,7 +92,7 @@ RUN apt-get update && apt-get install -y curl gnupg2 lsb-release && \
 	echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list 
 
 
-RUN apt-get update && apt-get -y install ros-eloquent-desktop	
+RUN apt-get update && apt-get -y install ros-eloquent-desktop	&& rm -rf /var/lib/apt/lists/*
 
 
 # opencv layer
@@ -107,10 +111,7 @@ RUN cd /opt/ &&\
         -DCMAKE_BUILD_TYPE=RELEASE \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         .. &&  make -j8 && make install && ldconfig &&\
-    rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
-
-
-RUN apt-get update && pip install tensorflow
-
+    rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION} \
+    rm -rf /var/lib/apt/lists/*
 
  
