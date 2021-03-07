@@ -107,4 +107,5 @@ RUN cd /opt/ &&\
     rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION} \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && pip install tensorflow pytorch 
+RUN apt-get update && pip install tensorflow pytorch \
+	&& rm -rf /var/lib/apt/lists/* 
