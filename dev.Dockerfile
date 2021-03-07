@@ -57,9 +57,8 @@ RUN  apt-get update && apt-get upgrade -y &&\
         python-dev \
         python-numpy \
         python3-dev \
-        python3-numpy \
-    && rm -rf /var/lib/apt/lists/*
-
+        python3-numpy && \
+      rm -rf /var/lib/apt/lists/*
 
 
 RUN apt-get update && apt-get -y install libeigen3-dev \
@@ -67,6 +66,24 @@ RUN apt-get update && apt-get -y install libeigen3-dev \
 
 
 
+# ros2 layer
+
+RUN locale  && apt-get update && \
+	 apt-get install locales\ 
+	 && locale-gen en_US en_US.UTF-8\
+         &&  update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8\
+         && export LANG=en_US.UTF-8 && locale \ 
+         && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y curl gnupg2 lsb-release && \	
+	curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - &&\
+	echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list 
+
+
+RUN apt-get update && apt-get -y install ros-eloquent-desktop	
+
+
+# opencv layer
 RUN cd /opt/ &&\
     # Download and unzip OpenCV and opencv_contrib and delte zip files
     wget https://github.com/opencv/opencv/archive/$OPENCV_VERSION.zip &&\
