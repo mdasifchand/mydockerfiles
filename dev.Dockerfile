@@ -1,11 +1,4 @@
 FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
-<<<<<<< HEAD
-
-# TODO : install g20, pangolin 
-
-=======
-# Full scale environment
->>>>>>> a8c12520492600cef2a75d9ce4da93994a841690
 ARG UNAME=light
 ARG UID=1000
 ARG GID=1000
