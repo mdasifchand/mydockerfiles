@@ -1,5 +1,5 @@
 FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
-
+# Full scale environment
 ARG UNAME=light
 ARG UID=1000
 ARG GID=1000
