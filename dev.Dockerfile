@@ -86,7 +86,7 @@ RUN apt-get update && apt-get install -y curl gnupg2 lsb-release && \
 	echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list 
 
 
-RUN apt-get update && apt-get -y install ros-eloquent-desktop	
+RUN apt-get update && apt-get -y install ros-eloquent-desktop	&& rm -rf /var/lib/apt/lists/*
 
 
 # opencv layer
@@ -105,8 +105,10 @@ RUN cd /opt/ &&\
         -DCMAKE_BUILD_TYPE=RELEASE \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         .. &&  make -j8 && make install && ldconfig &&\
-    rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
+    rm -rf /opt/opencv-${OPENCV_VERSION} && rm -rf /opt/opencv_contrib-${OPENCV_VERSION} \
+    rm -rf /var/lib/apt/lists/*
 
 
-RUN apt-get update && pip install tensorflow
+RUN apt-get update && pip install tensorflow &&
+rm -rf /var/lib/apt/lists/*
  
