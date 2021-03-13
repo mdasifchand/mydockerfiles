@@ -2,8 +2,7 @@
 
 # Docker files 
 
-So I have an alienware, raspberry pi and a Jetson TX2. And I had this idea to create a virtual environment, just incase I corrupt any of my existing systems. 
-
+So I have an alienware, raspberry pi and a Jetson TX2.  I had this thought of creating environment for all of them as a backup In case I would like to compile/build sources in them using rsync.
 
 ## Building
 
