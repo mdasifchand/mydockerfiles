@@ -21,7 +21,7 @@ sudo usermod -aG docker $USER //register the group
 ```
 # run 
 
-I am not in favour of entrypoint script, I just it makes your life complicated.
+I am not in favour of a default entrypoint script, It just it makes your life complicated,I like the idea of overriding one at runtime. 
 
 
 ## Types of environment
