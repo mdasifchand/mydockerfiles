@@ -1,8 +1,10 @@
 # mydockerfiles
 
+## Author: Mohammed Asif Chand
+
 # Docker files 
 
-So I have an alienware, raspberry pi and a Jetson TX2.  I had this thought of creating environment for all of them as a backup In case I would like to compile/build sources in them using rsync.
+So I have an alienware, raspberry pi and a Jetson TX2.  I had this thought of creating environment for all of them as a backup In case I would like to compile/build sources in them using rsync or over a CI pipeline. 
 
 ## Building
 
