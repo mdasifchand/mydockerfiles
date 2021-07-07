@@ -41,6 +41,15 @@ I am not in favour of a default entrypoint script, It just it makes your life co
 
 - To create a runner go to Actions and then create a new workflow with your defined purpose like publish/build etc.
 
+# Pulling dockerfile 
+
+- create an access token
+- export CR_PAT=<access token>. With proper rights, these things are far more simpler with Gitlab over Github
+- run `echo $CR_PAT | docker login docker.pkg.github.com -u mdasifchand --password-stdin`
+- run `docker pull  docker.pkg.github.com/mdasifchand/mydockerfiles/image:latest`
+ 
+
+
 
 
 ## License
