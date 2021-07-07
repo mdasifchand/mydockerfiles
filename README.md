@@ -44,7 +44,7 @@ I am not in favour of a default entrypoint script, It just it makes your life co
 # Pulling dockerfile 
 
 - create an access token
-- export CR_PAT=<access token>. With proper rights, these things are far more simpler with Gitlab over Github
+- export CR_PAT= \<access token\>. With proper rights, these things are far more simpler with Gitlab over Github
 - run `echo $CR_PAT | docker login docker.pkg.github.com -u mdasifchand --password-stdin`
 - run `docker pull  docker.pkg.github.com/mdasifchand/mydockerfiles/image:latest`
  
