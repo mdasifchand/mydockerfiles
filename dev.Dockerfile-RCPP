@@ -3,6 +3,12 @@ FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV OPENCV_VERSION=4.5.0
 
+ARG ROS_PKG=ros_base
+ENV ROS_DISTRO=foxy
+ENV ROS_ROOT=/opt/ros/${ROS_DISTRO}
+
+
+
 #Development tools
 #https://stackoverflow.com/questions/32486779/apt-add-repository-command-not-found-error-in-dockerfile
 RUN apt-get update && \
@@ -10,12 +16,12 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 
-RUN apt-get update &&  add-apt-repository ppa:ubuntu-toolchain-r/test \
-	apt-get update && apt install gcc-9 \
-	rm -rf /var/lib/apt/lists/*
+RUN apt-get update &&  add-apt-repository ppa:ubuntu-toolchain-r/test &&\
+	apt-get update && apt -y install gcc-9 && rm -rf /var/lib/apt/lists/*
 
-ENV CXX="g++-9" 
-ENV CC="gcc-9"
+
+#ENV CXX="g++-9" 
+#ENV CC="gcc-9"
 
 RUN apt-get update && apt-get install -y g++ rsync zip openssh-server make \
 	cmake git wget  && rm -rf /var/lib/apt/lists/*
@@ -79,12 +85,12 @@ RUN apt-get update && apt-get -y install libeigen3-dev \
 
 #install pangolin
 RUN apt-get update && git clone https://github.com/stevenlovegrove/Pangolin.git \
-	&& cd Pangolin && mkdir -p build && cmake .. && make install -j8 \
+	&& cd Pangolin && mkdir -p build && cd build && cmake .. && make install -j8 \
 	&& cd - && rm -rf /var/lib/apt/lists/*
 
 
 # ros2 layer
-
+    
 RUN locale  && apt-get update && \
 	 apt-get install locales\ 
 	 && locale-gen en_US en_US.UTF-8\
@@ -98,8 +104,11 @@ RUN apt-get update && apt-get install -y curl gnupg2 lsb-release && \
 
 
 RUN apt-get update && apt-get -y install ros-eloquent-desktop	&& rm -rf /var/lib/apt/lists/*
-RUN apt-get update && pip install tensorflow pytorch \
-	&& rm -rf /var/lib/apt/lists/* 
+
+
+
+#RUN apt-get update && pip install tensorflow torch \
+#	&& rm -rf /var/lib/apt/lists/* 
 
 
 
@@ -108,4 +117,5 @@ ARG UID=1000
 ARG GID=1000
 RUN groupadd -g $GID -o $UNAME
 RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
+echo light | passwd light --stdin
 USER $UNAME
