@@ -86,7 +86,7 @@ RUN apt-get update && apt-get -y install libeigen3-dev \
 #install pangolin
 RUN apt-get update && git clone https://github.com/stevenlovegrove/Pangolin.git \
 	&& cd Pangolin && mkdir -p build && cd build && cmake .. && make install -j8 \
-	&& cd - && rm -rf /var/lib/apt/lists/*
+	&& cd / && rm -rf Pangolin   && rm -rf /var/lib/apt/lists/*
 
 
 # ros2 layer
@@ -111,11 +111,14 @@ RUN apt-get update && apt-get -y install ros-eloquent-desktop	&& rm -rf /var/lib
 #	&& rm -rf /var/lib/apt/lists/* 
 
 
+RUN apt-get update \
+ && apt-get install -y sudo
 
-ARG UNAME=light
-ARG UID=1000
-ARG GID=1000
-RUN groupadd -g $GID -o $UNAME
-RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
-echo light | passwd light --stdin
-USER $UNAME
+RUN adduser --disabled-password --gecos '' light
+RUN adduser light sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+USER light
+
+# this is where I was running into problems with the other approaches
+RUN sudo apt-get update 
