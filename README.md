@@ -10,7 +10,7 @@ So I have an alienware, raspberry pi and a Jetson TX2.  I had this thought of cr
 
 To build a docker
 
-For instance, run ``` docker build -t <name:tag>. -f <type>.Dockerfile ```
+For instance, run ``` docker build -t <name:tag> . -f <type>.Dockerfile ```
 
 
 Few prior settings (especially on a new machine)
