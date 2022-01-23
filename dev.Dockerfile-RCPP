@@ -4,6 +4,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV OPENCV_VERSION=4.5.0
 
 #Development tools
+#https://stackoverflow.com/questions/32486779/apt-add-repository-command-not-found-error-in-dockerfile
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    rm -rf /var/lib/apt/lists/*
+
 
 RUN apt-get update &&  add-apt-repository ppa:ubuntu-toolchain-r/test \
 	apt-get update && apt install gcc-9 \
@@ -14,8 +19,6 @@ ENV CC="gcc-9"
 
 RUN apt-get update && apt-get install -y g++ rsync zip openssh-server make \
 	cmake git wget  && rm -rf /var/lib/apt/lists/*
-
-
 
 # networking tools
 
